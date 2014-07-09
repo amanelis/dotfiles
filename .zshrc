@@ -81,6 +81,8 @@ alias glz="git log --no-merges --graph --pretty=format:'%Cred%h%Creset -%C(yello
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gll="git log --pretty=oneline --decorate --graph"
 alias glll="git lg -p"
+alias gstats="git shortlog -sne"
+alias glstats="git log --author=\"Alex Manelis\" --pretty=tformat: --numstat | sort"
 alias gac='git add . && git commit -m'
 alias gphm='git push heroku master'
 alias gpom='git push origin master'

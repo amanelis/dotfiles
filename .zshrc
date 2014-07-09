@@ -41,7 +41,8 @@ ZSH_THEME="edvardm"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(bundler encode64 git)
+# https://github.com/zsh-users/zsh-syntax-highlighting
+plugins=(bundler encode64 git zsh-syntax-highlighting)
 
 # Source OH MY ZSH
 source $ZSH/oh-my-zsh.sh

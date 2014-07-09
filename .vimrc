@@ -58,6 +58,7 @@ filetype plugin indent on    " required
 syntax enable
 filetype plugin indent on " filetype detection[ON] plugin[ON] indent[ON]
 filetype indent on        " activates indenting for files
+
 set t_Co=256              " enable 256-color mode.
 set number                " show line numbers
 set laststatus=2          " last window always has a statusline

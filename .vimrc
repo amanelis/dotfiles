@@ -22,6 +22,7 @@ Plugin 'shougo/unite.vim'
 Plugin 'marcweber/vim-addon-async'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-dispatch'
+"Plugin 'terryma/vim-multiple-cursors'
 Plugin 'shougo/vimproc.vim' " must $> make this plugin before it will work
 
 Bundle 'thoughtbot/vim-rspec'
@@ -57,6 +58,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 syntax enable
+colorscheme molokai
 filetype plugin indent on " filetype detection[ON] plugin[ON] indent[ON]
 filetype indent on        " activates indenting for files
 
@@ -114,10 +116,14 @@ let g:unite_source_grep_default_opts = "-iRHn"
       \ . " --exclude='*.git*'"
       \ . " --exclude='*.log*'"
       \ . " --exclude='*tmp*'"
+      \ . " --exclude='*tags*'"
+      \ . " --exclude='*schema.rb*'"
+      \ . " --exclude='*structure.sql*'"
       \ . " --exclude-dir='**/tmp'"
       \ . " --exclude-dir='CVS'"
       \ . " --exclude-dir='.svn'"
       \ . " --exclude-dir='.git'"
       \ . " --exclude-dir='public'"
+      \ . " --exclude-dir='coverage'"
       \ . " --exclude-dir='log'"
       \ . " --exclude-dir='node_modules'"

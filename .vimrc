@@ -32,8 +32,9 @@ Bundle 'desert-warm-256'
 
 runtime macros/matchit.vim
 
-" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
+Plugin 'BufOnly.vim'
 
 " Git plugin not hosted on GitHub
 Plugin 'git://git.wincent.com/command-t.git'

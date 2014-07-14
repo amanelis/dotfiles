@@ -5,3 +5,8 @@ To install dotfiles, run the following script below. It will make a backup each 
     ./install.sh
 
 Ansewr **"y"** to install. After the install complets, run `vme` - this will invoke the Vundle PluginInstall command.
+
+Current plugins that are not included
+
+- https://github.com/zsh-users/zsh-syntax-highlighting
+- http://lnav.org/

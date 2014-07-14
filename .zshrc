@@ -71,7 +71,6 @@ alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/serv
 alias esearch="elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml"
 alias speaks="sudo kill `ps -ax | grep 'coreaudiod' | grep 'sbin' |awk '{print $1}'`"
 
-alias lnav="~/.bin/lnav"
 alias tm="tmux"
 alias tmv="tmux split-window -h"
 alias tmh="tmux split-window"

@@ -75,8 +75,8 @@ alias tm="tmux"
 alias tmv="tmux split-window -h"
 alias tmh="tmux split-window"
 
-alias tail_development="tail -f log/development.log | ~/.bin/lnav"
-alias tail_test="tail -f log/test.log | ~/.bin/lnav"
+alias tail_development="/usr/local/bin/lnav log/development.log"
+alias tail_test="/usr/local/bin/lnav log/test.log"
 
 alias gb='git branch'
 alias gd='git diff'

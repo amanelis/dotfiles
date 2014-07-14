@@ -63,6 +63,8 @@ alias p='pwd'
 alias ror='cd ~/Development/ && clear && ls -l'
 alias tc='cd ~/Development/trueandco-web && ls -l'
 alias vme='vim +PluginInstall +qall'
+alias show_hidden='defaults write com.apple.finder AppleShowAllFiles 1 && killall Finder'
+alias hide_hidden='defaults write com.apple.finder AppleShowAllFiles 0 && killall Finder'
 
 alias gcc='/usr/bin/gcc -W'
 alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"

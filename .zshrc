@@ -103,5 +103,7 @@ alias master='git checkout master'
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
+source ~/.joyent-config
+
 ### Export final path and RVM
 PATH=$PATH:$HOME/.rvm/bin

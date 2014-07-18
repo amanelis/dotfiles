@@ -22,6 +22,7 @@ Plugin 'shougo/unite.vim'
 Plugin 'marcweber/vim-addon-async'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-dispatch'
+Plugin 'airblade/vim-gitgutter'
 "Plugin 'terryma/vim-multiple-cursors'
 Plugin 'shougo/vimproc.vim' " must $> make this plugin before it will work
 
@@ -96,6 +97,7 @@ nnoremap <C-o> :Unite outline -vertical <cr>
 nnoremap <silent> <C-p> :Unite -start-insert -buffer-name=files -winheight=10 file_rec/async<cr>
 nnoremap <Leader>b :Unite -buffer-name=buffers -winheight=10 buffer<cr>
 nnoremap <Leader>f :Unite grep:.<cr>
+nnoremap <silent><leader>ll :<C-u>UniteResume<CR>
 
 let g:rspec_runner = "os_x_iterm"
 let g:rspec_command = "!spring rspec --drb {spec}"

@@ -10,8 +10,10 @@ dotfiles=(
   .gemrc
   .gitconfig
   .gitignore_global
+  .irbrc
   .my.cnf
   .profile
+  .pryrc
   .spring.rb
   .tmux.conf
   .vimrc

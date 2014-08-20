@@ -89,15 +89,20 @@ set ttymouse=xterm2
 let mapleader=","
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
+" Tab control
 map <C-l> :tabn<CR>
 map <C-h> :tabp<CR>
 map <C-n> :tabnew<CR>
 
+" Standard file search
 nnoremap <C-p> :Unite file_rec/async<cr>
 nnoremap <C-o> :Unite outline -vertical <cr>
 nnoremap <silent> <C-p> :Unite -start-insert -buffer-name=files -winheight=10 file_rec/async<cr>
+" Open buffers
 nnoremap <Leader>b :Unite -buffer-name=buffers -winheight=10 buffer<cr>
+" Open global search
 nnoremap <Leader>f :Unite grep:.<cr>
+" Return to search results
 nnoremap <silent><leader>ll :<C-u>UniteResume<CR>
 
 let g:rspec_runner = "os_x_iterm"
@@ -130,10 +135,6 @@ let g:unite_source_grep_default_opts = "-iRHn"
       \ . " --exclude-dir='coverage'"
       \ . " --exclude-dir='log'"
       \ . " --exclude-dir='node_modules'"
-
-
-
-
 
 " Delete buffer while keeping window layout (don't close buffer's windows).
 " Version 2008-11-18 from http://vim.wikia.com/wiki/VimTip165

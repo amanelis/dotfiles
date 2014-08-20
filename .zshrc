@@ -77,6 +77,7 @@ alias tmh="tmux split-window"
 
 alias tail_development="/usr/local/bin/lnav log/development.log"
 alias tail_test="/usr/local/bin/lnav log/test.log"
+alias cleanrails="RAILS_ENV=development bundle exec rake log:clear tmp:clear assets:clean cache:clear"
 
 alias gb='git branch'
 alias gd='git diff'

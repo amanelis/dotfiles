@@ -78,6 +78,8 @@ alias tmh="tmux split-window"
 alias tail_development="/usr/local/bin/lnav log/development.log"
 alias tail_test="/usr/local/bin/lnav log/test.log"
 alias cleanrails="RAILS_ENV=development bundle exec rake log:clear tmp:clear assets:clean cache:clear"
+alias ftp_start='sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist'
+alias ftp_stop='sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.plist'
 
 alias gb='git branch'
 alias gd='git diff'
@@ -103,10 +105,7 @@ alias testing='git checkout testing'
 alias staging='git checkout staging'
 alias master='git checkout master'
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
 source ~/.joyent-config
 
 ### Export final path and RVM
-PATH=$PATH:$HOME/.rvm/bin
+export PATH=$PATH:$HOME/.rvm/bin:/usr/local/sbin:/usr/local/heroku/bin:/usr/local/opt/go/libexec/bin:$PATH

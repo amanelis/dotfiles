@@ -70,10 +70,19 @@ alias gcc='/usr/bin/gcc -W'
 alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias esearch="elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml"
 alias speaks="sudo kill `ps -ax | grep 'coreaudiod' | grep 'sbin' |awk '{print $1}'`"
+alias mate="open -a TextMate"
 
 alias tm="tmux"
 alias tmv="tmux split-window -h"
 alias tmh="tmux split-window"
+
+alias kill_spring="ps -ef | grep spring | grep -v grep | awk '{print $2}' | xargs kill -9"
+alias kill_ruby="ps -ef | grep ruby | grep -v grep | awk '{print $2}' | xargs kill -9"
+alias kill_passenger="ps -ef | grep passenger | grep -v grep | awk '{print $2}' | xargs kill -9"
+alias kill_rails="ps -ef | grep rails | grep -v grep | awk '{print $2}' | xargs kill -9"
+
+alias macmystart="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
+alias macmystop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
 
 alias tail_development="/usr/local/bin/lnav log/development.log"
 alias tail_test="/usr/local/bin/lnav log/test.log"

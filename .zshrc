@@ -83,12 +83,13 @@ alias kill_rails="ps -ef | grep rails | grep -v grep | awk '{print $2}' | xargs 
 
 alias macmystart="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
 alias macmystop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
+alias macpgstart="postgres -D /usr/local/var/postgres"
+alias ftp_start='sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist'
+alias ftp_stop='sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.plist'
 
 alias tail_development="/usr/local/bin/lnav log/development.log"
 alias tail_test="/usr/local/bin/lnav log/test.log"
 alias cleanrails="RAILS_ENV=development bundle exec rake log:clear tmp:clear assets:clean cache:clear"
-alias ftp_start='sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist'
-alias ftp_stop='sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.plist'
 
 alias gb='git branch'
 alias gd='git diff'

@@ -20,8 +20,8 @@
   untracked = cyan reverse
   branch = magenta
 [user]
-	name = 
-	email = 
+	name = Alex Manelis
+	email = amanelis@gmail.com
 [core]
 	editor = vim
 	excludesfile = /Users/amanelis/.gitignore_global

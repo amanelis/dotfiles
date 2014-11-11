@@ -2,3 +2,4 @@
 .DS_Store
 .ssh
 .rubocop.yml
+git-blame-colored

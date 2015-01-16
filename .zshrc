@@ -66,9 +66,15 @@ alias ta='cd ~/Development/trueandco-ansible && ls -l'
 alias vme='vim +PluginInstall +qall'
 alias show_hidden='defaults write com.apple.finder AppleShowAllFiles 1 && killall Finder'
 alias hide_hidden='defaults write com.apple.finder AppleShowAllFiles 0 && killall Finder'
+kill_processes(){
+  ps -ef | grep $1 | grep -v grep | awk '{print $2}' | xargs kill -9
+}
+alias kit=kill_processes
 
 alias gcc='/usr/bin/gcc -W'
 alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
+alias postgres.server="sudo -u postgres pg_ctl -D/Library/PostgreSQL/9.2/data"
 alias esearch="elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml"
 alias speaks="sudo kill `ps -ax | grep 'coreaudiod' | grep 'sbin' |awk '{print $1}'`"
 alias mate="open -a TextMate"

@@ -74,10 +74,10 @@ alias kit=kill_processes
 alias gcc='/usr/bin/gcc -W'
 alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
-alias postgres.server="sudo -u postgres pg_ctl -D/Library/PostgreSQL/9.2/data"
 alias esearch="elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml"
 alias speaks="sudo kill `ps -ax | grep 'coreaudiod' | grep 'sbin' |awk '{print $1}'`"
 alias mate="open -a TextMate"
+alias subl='open -a "Sublime Text 2"'
 
 alias tm="tmux"
 alias tmv="tmux split-window -h"

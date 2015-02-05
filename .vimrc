@@ -98,6 +98,7 @@ map <C-n> :tabnew<CR>
 nnoremap <C-p> :Unite file_rec/async<cr>
 nnoremap <C-o> :Unite outline -vertical <cr>
 nnoremap <silent> <C-p> :Unite -start-insert -buffer-name=files -winheight=10 file_rec/async<cr>
+
 " Open buffers
 nnoremap <Leader>b :Unite -buffer-name=buffers -winheight=10 buffer<cr>
 " Open global search

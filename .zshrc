@@ -69,8 +69,13 @@ alias hide_hidden='defaults write com.apple.finder AppleShowAllFiles 0 && killal
 kill_processes(){
   ps -ef | grep $1 | grep -v grep | awk '{print $2}' | xargs kill -9
 }
+find_processes(){
+  ps -ef | grep $1 | grep -v grep | awk '{print $2" "$8}'
+}
 alias kp=kill_processes
+alias fp=find_processes
 
+alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags'
 alias gcc='/usr/bin/gcc -W'
 alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"

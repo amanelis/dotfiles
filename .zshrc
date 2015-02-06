@@ -82,7 +82,8 @@ alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 alias esearch="elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml"
 alias speaks="sudo kill `ps -ax | grep 'coreaudiod' | grep 'sbin' |awk '{print $1}'`"
 alias mate="open -a TextMate"
-alias subl='open -a "Sublime Text 2"'
+alias subl2='open -a "Sublime Text 2"'
+alias subl3='open -a "Sublime Text"'
 
 alias tm="tmux"
 alias tmv="tmux split-window -h"
@@ -102,6 +103,7 @@ alias ftp_stop='sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.pl
 alias tail_development="/usr/local/bin/lnav log/development.log"
 alias tail_test="/usr/local/bin/lnav log/test.log"
 alias cleanrails="RAILS_ENV=development bundle exec rake log:clear tmp:clear assets:clean cache:clear"
+alias cleanvcr="rm -rf ./spec/vcr"
 
 alias gb='git branch'
 alias gd='git diff'

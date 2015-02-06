@@ -89,6 +89,10 @@ set ttymouse=xterm2
 let mapleader=","
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
+" Buffer browsing
+map <C-y> :bprevious<CR>
+map <C-o> :bnext<CR>
+
 " Tab control
 map <C-l> :tabn<CR>
 map <C-h> :tabp<CR>
@@ -96,7 +100,6 @@ map <C-n> :tabnew<CR>
 
 " Standard file search
 nnoremap <C-p> :Unite file_rec/async<cr>
-nnoremap <C-o> :Unite outline -vertical <cr>
 nnoremap <silent> <C-p> :Unite -start-insert -buffer-name=files -winheight=10 file_rec/async<cr>
 
 " Open buffers

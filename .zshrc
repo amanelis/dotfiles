@@ -96,6 +96,7 @@ alias kill_ruby="ps -ef | grep ruby | grep -v grep | awk '{print $2}' | xargs ki
 alias kill_passenger="ps -ef | grep passenger | grep -v grep | awk '{print $2}' | xargs kill -9"
 alias kill_rails="ps -ef | grep rails | grep -v grep | awk '{print $2}' | xargs kill -9"
 
+alias iso="cd /Users/alexmanelis/Development/isofun"
 alias macmystart="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
 alias macmystop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
 alias macpgstart="postgres -D /usr/local/var/postgres"

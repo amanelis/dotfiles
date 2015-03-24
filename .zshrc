@@ -49,7 +49,7 @@ plugins=(bundler encode64 git zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # Path. This should be the standard and work perfectly
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/amanelis/.rvm/bin:$PATH
+export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/amanelis/.rvm/bin
 export EDITOR='vim'
 
 # RVM
@@ -78,8 +78,10 @@ alias fp=find_processes
 
 alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags'
 alias gcc='/usr/bin/gcc -W'
+alias pgrun="postgres -D /usr/local/var/postgres"
 alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
+alias database_stop="launchctl remove homebrew.mxcl.mysql && launchctl remove homebrew.mxcl.postgresql"
 alias esearch="elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml"
 alias speaks="sudo kill `ps -ax | grep 'coreaudiod' | grep 'sbin' |awk '{print $1}'`"
 alias mate="open -a TextMate"
@@ -95,6 +97,7 @@ alias kill_ruby="ps -ef | grep ruby | grep -v grep | awk '{print $2}' | xargs ki
 alias kill_passenger="ps -ef | grep passenger | grep -v grep | awk '{print $2}' | xargs kill -9"
 alias kill_rails="ps -ef | grep rails | grep -v grep | awk '{print $2}' | xargs kill -9"
 
+alias iso="cd /Users/alexmanelis/Development/isofun"
 alias macmystart="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
 alias macmystop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
 alias macpgstart="postgres -D /usr/local/var/postgres"

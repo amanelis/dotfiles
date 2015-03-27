@@ -75,6 +75,7 @@ find_processes(){
 }
 alias kp=kill_processes
 alias fp=find_processes
+alias kps='kp spring'
 
 alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags'
 alias gcc='/usr/bin/gcc -W'

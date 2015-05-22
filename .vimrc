@@ -25,6 +25,7 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'fatih/vim-go'
+Plugin 'dbakker/vim-projectroot'
 Plugin 'shougo/vimproc.vim' " must $> make this plugin before it will work
 
 Bundle 'thoughtbot/vim-rspec'
@@ -85,6 +86,14 @@ set noerrorbells
 set novisualbell
 set mouse=a
 set ttymouse=xterm2
+set autochdir
+set tags=tags;
+
+" Build the ctrlp function, using projectroot to define the 
+" working directory.
+function! Unite_ctrlp()
+  execute ':Unite  -buffer-name=files -start-insert buffer file_rec/async:'.ProjectRootGuess().'/'
+endfunction
 
 let mapleader=","
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
@@ -98,9 +107,13 @@ map <C-l> :tabn<CR>
 map <C-h> :tabp<CR>
 map <C-n> :tabnew<CR>
 
-" Standard file search
-nnoremap <C-p> :Unite file_rec/async<cr>
-nnoremap <silent> <C-p> :Unite -start-insert -buffer-name=files -winheight=10 file_rec/async<cr>
+" Standard file search via Unite
+"nnoremap <C-p> :Unite file_rec/async<cr>
+"nnoremap <silent><C-p> :Unite -start-insert -buffer-name=files -winheight=10 file_rec/async<cr>
+nnoremap <C-p> :call Unite_ctrlp()<cr>
+
+" Vim projecroot
+nnoremap <leader>dp :ProjectRootCD<cr>
 
 " Open buffers
 nnoremap <Leader>b :Unite -buffer-name=buffers -winheight=10 buffer<cr>
@@ -211,4 +224,4 @@ function! s:Bclose(bang, buffer)
   execute wcurrent.'wincmd w'
 endfunction
 command! -bang -complete=buffer -nargs=? Bclose call s:Bclose('<bang>', '<args>')
-nnoremap <silent> <Leader>bd :Bclose<CR>
+nnoremap <silent><Leader>bd :Bclose<CR>

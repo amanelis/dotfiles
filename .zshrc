@@ -77,6 +77,11 @@ alias kp=kill_processes
 alias fp=find_processes
 alias kps='kp spring'
 
+dsrev () { cap dev_staging rev -s dev=$1 }
+dslog () { cap dev_staging log -s dev=$1 }
+dsdeploy () { cap dev_staging deploy -s dev=$1 }
+dsimportdb () { cap dev_staging deploy:staging:import_db -s dev=$1 }
+
 alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags'
 alias gcc='/usr/bin/gcc -W'
 alias pgrun="postgres -D /usr/local/var/postgres"

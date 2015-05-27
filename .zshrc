@@ -1,4 +1,3 @@
-# Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
@@ -73,8 +72,12 @@ kill_processes(){
 find_processes(){
   ps -ef | grep $1 | grep -v grep | awk '{print $2" "$8}'
 }
+kill_webserver(){
+  lsof -i $1 | grep -v PID | awk '{print $2}' | xargs kill -9
+}
 alias kp=kill_processes
 alias fp=find_processes
+alias kw=kill_webserver
 alias kps='kp spring'
 
 dsrev () { cap dev_staging rev -s dev=$1 }

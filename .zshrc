@@ -79,6 +79,7 @@ alias kp=kill_processes
 alias fp=find_processes
 alias kw=kill_webserver
 alias kps='kp spring'
+alias k9='kill -9'
 
 dsrev () { cap dev_staging rev -s dev=$1 }
 dslog () { cap dev_staging log -s dev=$1 }

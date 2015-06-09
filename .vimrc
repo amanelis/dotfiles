@@ -89,12 +89,6 @@ set ttymouse=xterm2
 set autochdir
 set tags=tags;
 
-" Build the ctrlp function, using projectroot to define the 
-" working directory.
-function! Unite_ctrlp()
-  execute ':Unite  -buffer-name=files -start-insert buffer file_rec/async:'.ProjectRootGuess().'/'
-endfunction
-
 let mapleader=","
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
@@ -108,9 +102,8 @@ map <C-h> :tabp<CR>
 map <C-n> :tabnew<CR>
 
 " Standard file search via Unite
-"nnoremap <C-p> :Unite file_rec/async<cr>
-"nnoremap <silent><C-p> :Unite -start-insert -buffer-name=files -winheight=10 file_rec/async<cr>
-nnoremap <C-p> :call Unite_ctrlp()<cr>
+nnoremap <C-p> :Unite file_rec/async<cr>
+nnoremap <silent><C-p> :Unite -start-insert -buffer-name=files -winheight=10 file_rec/async<cr>
 
 " Vim projecroot
 nnoremap <leader>dp :ProjectRootCD<cr>

@@ -91,12 +91,14 @@ alias gcc='/usr/bin/gcc -W'
 alias pgrun="postgres -D /usr/local/var/postgres"
 alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
+alias rstart="/usr/local/bin/redis-server /usr/local/etc/redis.conf"
 alias database_stop="launchctl remove homebrew.mxcl.mysql && launchctl remove homebrew.mxcl.postgresql"
 alias esearch="elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml"
 alias speaks="sudo kill `ps -ax | grep 'coreaudiod' | grep 'sbin' |awk '{print $1}'`"
 alias mate="open -a TextMate"
 alias subl2='open -a "Sublime Text 2"'
 alias subl3='open -a "Sublime Text"'
+alias runmsf='cd /usr/local/share/metasploit-framework && msfconsole'
 
 alias tm="tmux"
 alias tmv="tmux split-window -h"
@@ -119,6 +121,7 @@ alias tail_test="/usr/local/bin/lnav log/test.log"
 alias cleanrails="RAILS_ENV=development bundle exec rake log:clear tmp:clear assets:clean cache:clear"
 alias cleanvcr="rm -rf ./spec/vcr"
 
+alias kps='kp spring'
 alias gb='git branch'
 alias gd='git diff'
 alias gf='git fetch'

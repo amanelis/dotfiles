@@ -26,6 +26,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'fatih/vim-go'
 Plugin 'dbakker/vim-projectroot'
+Plugin 'burnettk/vim-angular'
 Plugin 'shougo/vimproc.vim' " must $> make this plugin before it will work
 
 Bundle 'thoughtbot/vim-rspec'

@@ -27,6 +27,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'fatih/vim-go'
 Plugin 'dbakker/vim-projectroot'
 Plugin 'burnettk/vim-angular'
+Plugin 'tpope/vim-rails'
 Plugin 'shougo/vimproc.vim' " must $> make this plugin before it will work
 
 Bundle 'thoughtbot/vim-rspec'
@@ -89,9 +90,11 @@ set mouse=a
 set ttymouse=xterm2
 set autochdir
 set tags=tags;
+set noautochdir
 
 let mapleader=","
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
+map <leader>r :NERDTreeFind<cr>
 
 " Buffer browsing
 map <C-y> :bprevious<CR>
@@ -219,3 +222,24 @@ function! s:Bclose(bang, buffer)
 endfunction
 command! -bang -complete=buffer -nargs=? Bclose call s:Bclose('<bang>', '<args>')
 nnoremap <silent><Leader>bd :Bclose<CR>
+
+" Searches recursively from current file to find Rails home folder, which is 
+" signified by the presence of a Gemfile.
+function! FindRailsHome()
+    let not_found = 'False'
+    let test = '%:p'
+    let last_path = ''
+    while not_found == 'False'
+        let test = test.':h'
+        let path = expand(test)
+        if path != last_path
+            if len(globpath(expand(test), 'Gemfile')) > 0
+                return path
+            else
+                let last_path = path
+            endif
+        else
+            return './'
+        endif
+    endwhile
+endfunction

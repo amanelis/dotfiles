@@ -63,6 +63,7 @@ alias p='pwd'
 alias ror='cd ~/Development/ && clear && ls -l'
 alias tc='cd ~/Development/trueandco-web && ls -l'
 alias ta='cd ~/Development/trueandco-ansible && ls -l'
+alias cy='cd ~/Development/cybric && ls -l'
 alias vme='vim +PluginInstall +qall'
 alias show_hidden='defaults write com.apple.finder AppleShowAllFiles 1 && killall Finder'
 alias hide_hidden='defaults write com.apple.finder AppleShowAllFiles 0 && killall Finder'
@@ -150,4 +151,6 @@ alias master='git checkout master'
 source ~/.joyent-config
 
 ### Export final path and RVM
-export PATH=$PATH:$HOME/.rvm/bin:/usr/local/sbin:/usr/local/heroku/bin:/usr/local/opt/go/libexec/bin:$PATH
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="/usr/local/sbin:$PATH"

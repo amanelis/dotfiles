@@ -148,7 +148,7 @@ alias testing='git checkout testing'
 alias staging='git checkout staging'
 alias master='git checkout master'
 
-source ~/.joyent-config
+# source ~/.joyent-config
 
 ### Export final path and RVM
 

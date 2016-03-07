@@ -5,8 +5,11 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # Other really good ones: xiong-chiamiov, half-life, fino-time
-ZSH_THEME="fino-time"
+#ZSH_THEME="fino-time"
+#ZSH_THEME="bira"
+#ZSH_THEME="xiong-chiamiov"
 #ZSH_THEME="half-life"
+ZSH_THEME="gnzh"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -96,6 +99,7 @@ alias rstart="/usr/local/bin/redis-server /usr/local/etc/redis.conf"
 alias database_stop="launchctl remove homebrew.mxcl.mysql && launchctl remove homebrew.mxcl.postgresql"
 alias esearch="elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml"
 alias speaks="sudo kill `ps -ax | grep 'coreaudiod' | grep 'sbin' |awk '{print $1}'`"
+alias cdshadow="cd $CSHADOW"
 alias mate="open -a TextMate"
 alias subl2='open -a "Sublime Text 2"'
 alias subl3='open -a "Sublime Text"'
@@ -148,9 +152,12 @@ alias testing='git checkout testing'
 alias staging='git checkout staging'
 alias master='git checkout master'
 
-# source ~/.joyent-config
-
 ### Export final path and RVM
-
+export MSF_DATABASE_CONFIG=/usr/local/share/metasploit-framework/config/database.yml
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="/usr/local/sbin:$PATH"
+
+# GOPATH neccessary for golang to even work
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$GOBIN:$PATH

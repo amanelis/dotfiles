@@ -24,7 +24,7 @@
 	email = amanelis@gmail.com
 [core]
 	editor = vim
-	excludesfile = /Users/amanelis/.gitignore_global
+	excludesfile = /Users/alexmanelis/.gitignore_global
 [alias]
   st = status
   ci = commit

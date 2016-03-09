@@ -5,3 +5,4 @@ PATH=/usr/local/opt/ruby193/bin:/usr/local/bin:/usr/local/sbin:/Users/alexmaneli
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$GOBIN:$PATH
+export CSHADOW=$GOPATH/src/github.com/cybricio/shadow

@@ -79,6 +79,9 @@ find_processes(){
 kill_webserver(){
   lsof -i $1 | grep -v PID | awk '{print $2}' | xargs kill -9
 }
+docker-ip() {
+  boot2docker ip 2> /dev/null
+}
 alias kp=kill_processes
 alias fp=find_processes
 alias kw=kill_webserver

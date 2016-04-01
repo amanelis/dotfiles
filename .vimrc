@@ -8,6 +8,12 @@ call vundle#begin()
 " Github
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-endwise'
+Plugin 'ecomba/vim-ruby-refactoring'
+Plugin 'jgdavey/vim-blockle'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'sjl/gundo.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
@@ -28,6 +34,7 @@ Plugin 'fatih/vim-go'
 Plugin 'dbakker/vim-projectroot'
 Plugin 'burnettk/vim-angular'
 Plugin 'tpope/vim-rails'
+Plugin 'ervandew/supertab'
 Plugin 'shougo/vimproc.vim' " must $> make this plugin before it will work
 
 Bundle 'thoughtbot/vim-rspec'
@@ -166,6 +173,12 @@ function! s:Warn(msg)
   echomsg a:msg
   echohl NONE
 endfunction
+
+" Gundo
+" nnoremap <F5> :GundoToggle<CR>
+let g:gundo_width = 60
+let g:gundo_preview_height = 40
+let g:gundo_right = 1
 
 " Command ':Bclose' executes ':bd' to delete buffer in current window.
 " The window will show the alternate buffer (Ctrl-^) if it exists,

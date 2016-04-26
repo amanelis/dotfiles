@@ -35,6 +35,9 @@ Plugin 'dbakker/vim-projectroot'
 Plugin 'burnettk/vim-angular'
 Plugin 'tpope/vim-rails'
 Plugin 'ervandew/supertab'
+Plugin 'nsf/gocode'
+
+
 Plugin 'shougo/vimproc.vim' " must $> make this plugin before it will work
 
 Bundle 'thoughtbot/vim-rspec'
@@ -132,6 +135,11 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
+
+" vim-go
+let g:go_term_mode = "split"
+let g:go_term_enabled = 1
+
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '

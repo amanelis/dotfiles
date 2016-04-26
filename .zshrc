@@ -60,6 +60,7 @@ rvm_trust_rvmrcs_flag=1
 
 # Aliases
 alias c='cd ../ && clear && ls -l'
+alias cgo='cd /Users/alexmanelis/go/src/github.com && clear && ls -l'
 alias l='clear && ls -l'
 alias ll='clear && ls -la'
 alias p='pwd'

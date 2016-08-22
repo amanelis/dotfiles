@@ -65,19 +65,17 @@ alias l='clear && ls -l'
 alias ll='clear && ls -la'
 alias p='pwd'
 alias ror='cd ~/Development/ && clear && ls -l'
-alias tc='cd ~/Development/Ruby/trueandco-web && ls -l'
-alias ta='cd ~/Development/Ruby/trueandco-ansible && ls -l'
-alias cy='cd ~/Development/Ruby/Cybric/fabric && ls -l'
+alias cy='cd ~/Development/Cybric/fabric && ls -l'
 alias vme='vim +PluginInstall +qall'
 alias show_hidden='defaults write com.apple.finder AppleShowAllFiles 1 && killall Finder'
 alias hide_hidden='defaults write com.apple.finder AppleShowAllFiles 0 && killall Finder'
-kill_processes(){
+kill_processes() {
   ps -ef | grep $1 | grep -v grep | awk '{print $2}' | xargs kill -9
 }
-find_processes(){
+find_processes() {
   ps -ef | grep $1 | grep -v grep | awk '{print $2" "$8}'
 }
-kill_webserver(){
+kill_webserver() {
   lsof -i $1 | grep -v PID | awk '{print $2}' | xargs kill -9
 }
 docker-ip() {
@@ -86,8 +84,6 @@ docker-ip() {
 alias kp=kill_processes
 alias fp=find_processes
 alias kw=kill_webserver
-alias kps='kp spring'
-alias k9='kill -9'
 
 dsrev () { cap dev_staging rev -s dev=$1 }
 dslog () { cap dev_staging log -s dev=$1 }
@@ -104,19 +100,10 @@ alias database_stop="launchctl remove homebrew.mxcl.mysql && launchctl remove ho
 alias esearch="elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml"
 alias speaks="sudo kill `ps -ax | grep 'coreaudiod' | grep 'sbin' |awk '{print $1}'`"
 alias cdshadow="cd $CSHADOW"
-alias mate="open -a TextMate"
+alias mate='open -a TextMate'
 alias subl2='open -a "Sublime Text 2"'
 alias subl3='open -a "Sublime Text"'
 alias runmsf='cd /usr/local/share/metasploit-framework && msfconsole'
-
-alias tm="tmux"
-alias tmv="tmux split-window -h"
-alias tmh="tmux split-window"
-
-alias kill_spring="ps -ef | grep spring | grep -v grep | awk '{print $2}' | xargs kill -9"
-alias kill_ruby="ps -ef | grep ruby | grep -v grep | awk '{print $2}' | xargs kill -9"
-alias kill_passenger="ps -ef | grep passenger | grep -v grep | awk '{print $2}' | xargs kill -9"
-alias kill_rails="ps -ef | grep rails | grep -v grep | awk '{print $2}' | xargs kill -9"
 
 alias iso="cd /Users/alexmanelis/Development/Ruby/isofun"
 alias macmystart="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
@@ -125,12 +112,6 @@ alias macpgstart="postgres -D /usr/local/var/postgres"
 alias ftp_start='sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist'
 alias ftp_stop='sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.plist'
 
-alias tail_development="/usr/local/bin/lnav log/development.log"
-alias tail_test="/usr/local/bin/lnav log/test.log"
-alias cleanrails="RAILS_ENV=development bundle exec rake log:clear tmp:clear assets:clean cache:clear"
-alias cleanvcr="rm -rf ./spec/vcr"
-
-alias kps='kp spring'
 alias gb='git branch'
 alias gd='git diff'
 alias gf='git fetch'
@@ -158,10 +139,19 @@ alias master='git checkout master'
 
 ### Export final path and RVM
 export MSF_DATABASE_CONFIG=/usr/local/share/metasploit-framework/config/database.yml
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH="/usr/local/sbin:$PATH"
+export VAULT_ADDR='http://127.0.0.1:8200'
+export PYENV_ROOT=/usr/local/var/pyenv
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+# PYENV
+eval "$(pyenv init -)"
+
+### PATH
+export PATH="$PATH:/usr/local/sbin"
 
 # GOPATH neccessary for golang to even work
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$GOBIN:$PATH
+
+export PATH="$PATH:$HOME/.rvm/bin"

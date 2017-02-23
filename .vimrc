@@ -102,6 +102,8 @@ set autochdir
 set tags=tags;
 set noautochdir
 
+"set expandtab ts=4 sw=4 ai
+
 let mapleader=","
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 map <leader>r :NERDTreeFind<cr>

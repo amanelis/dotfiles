@@ -16,7 +16,7 @@ ZSH_THEME="gnzh"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
+CASE_SENSITIVE="true"
 
 # Uncomment this to disable bi-weekly auto-update checks
 # DISABLE_AUTO_UPDATE="true"
@@ -34,7 +34,7 @@ ZSH_THEME="gnzh"
 # DISABLE_CORRECTION="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment following line if you want to disable marking untracked files under
 # VCS as dirty. This makes repository status check for large repositories much,
@@ -65,7 +65,7 @@ alias l='clear && ls -l'
 alias ll='clear && ls -la'
 alias p='pwd'
 alias ror='cd ~/Development/ && clear && ls -l'
-alias cy='cd ~/Development/Cybric/fabric && ls -l'
+alias cy='cd ~/Development/Cybric/ && ls -l'
 alias vme='vim +PluginInstall +qall'
 alias show_hidden='defaults write com.apple.finder AppleShowAllFiles 1 && killall Finder'
 alias hide_hidden='defaults write com.apple.finder AppleShowAllFiles 0 && killall Finder'
@@ -85,10 +85,11 @@ alias kp=kill_processes
 alias fp=find_processes
 alias kw=kill_webserver
 
-dsrev () { cap dev_staging rev -s dev=$1 }
-dslog () { cap dev_staging log -s dev=$1 }
-dsdeploy () { cap dev_staging deploy -s dev=$1 }
-dsimportdb () { cap dev_staging deploy:staging:import_db -s dev=$1 }
+alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias locip="ipconfig getifaddr en0"
+
+alias kcc="/Users/alexmanelis/Tmp/confluent-3.1.1/bin/kafka-console-consumer"
+alias kcp="/Users/alexmanelis/Tmp/confluent-3.1.1/bin/kafka-console-producer"
 
 alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags'
 alias gcc='/usr/bin/gcc -W'
@@ -96,21 +97,22 @@ alias pgrun="postgres -D /usr/local/var/postgres"
 alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 alias rstart="/usr/local/bin/redis-server /usr/local/etc/redis.conf"
-alias database_stop="launchctl remove homebrew.mxcl.mysql && launchctl remove homebrew.mxcl.postgresql"
-alias esearch="elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml"
-alias speaks="sudo kill `ps -ax | grep 'coreaudiod' | grep 'sbin' |awk '{print $1}'`"
-alias cdshadow="cd $CSHADOW"
 alias mate='open -a TextMate'
 alias subl2='open -a "Sublime Text 2"'
 alias subl3='open -a "Sublime Text"'
 alias runmsf='cd /usr/local/share/metasploit-framework && msfconsole'
-
-alias iso="cd /Users/alexmanelis/Development/Ruby/isofun"
 alias macmystart="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
 alias macmystop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
 alias macpgstart="postgres -D /usr/local/var/postgres"
 alias ftp_start='sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist'
 alias ftp_stop='sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.plist'
+
+alias docker_gc='docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v /etc:/etc spotify/docker-gc && docker rmi -f spotify/docker-gc'
+
+alias mc='/usr/bin/make compile'
+alias mi='/usr/bin/make install'
+alias ml='/usr/bin/make launch'
+alias mt='/usr/bin/make test'
 
 alias gb='git branch'
 alias gd='git diff'
@@ -125,6 +127,7 @@ alias gllll="git log --graph --oneline --decorate --all"
 alias gstats="git shortlog -sne"
 alias glstats="git log --author=\"Alex Manelis\" --pretty=tformat: --numstat | sort"
 alias gac='git add -A . && git commit -m'
+alias gsm='git submodule foreach git fetch origin --tags && git pull && git submodule update --init --recursive'
 alias gphm='git push heroku master'
 alias gpom='git push origin master'
 alias gpos='git push origin staging'
@@ -132,6 +135,7 @@ alias gpod='git push origin develop'
 alias gpot='git push origin test'
 alias gmom='git merge origin/master'
 alias grom='git rebase origin/master'
+alias grod='git rebase origin/develop'
 alias develop='git checkout develop'
 alias testing='git checkout testing'
 alias staging='git checkout staging'
@@ -154,4 +158,9 @@ export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$GOBIN:$PATH
 
+# RVM
 export PATH="$PATH:$HOME/.rvm/bin"
+
+export GROOVY_HOME=/usr/local/opt/groovy/libexec
+export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=128M"
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`

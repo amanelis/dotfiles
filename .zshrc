@@ -9,7 +9,7 @@ ZSH=$HOME/.oh-my-zsh
 #ZSH_THEME="bira"
 #ZSH_THEME="xiong-chiamiov"
 #ZSH_THEME="half-life"
-ZSH_THEME="gnzh"
+ZSH_THEME="bira"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -147,9 +147,6 @@ export VAULT_ADDR='http://127.0.0.1:8200'
 export PYENV_ROOT=/usr/local/var/pyenv
 export PATH="$PYENV_ROOT/bin:$PATH"
 
-# PYENV
-eval "$(pyenv init -)"
-
 ### PATH
 export PATH="$PATH:/usr/local/sbin"
 
@@ -164,3 +161,5 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=128M"
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 

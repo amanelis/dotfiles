@@ -36,6 +36,7 @@ Plugin 'burnettk/vim-angular'
 Plugin 'tpope/vim-rails'
 Plugin 'ervandew/supertab'
 Plugin 'nsf/gocode'
+Plugin 'davidhalter/jedi-vim'
 
 
 Plugin 'shougo/vimproc.vim' " must $> make this plugin before it will work

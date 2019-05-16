@@ -38,7 +38,6 @@ Plugin 'ervandew/supertab'
 Plugin 'nsf/gocode'
 Plugin 'davidhalter/jedi-vim'
 
-
 Plugin 'shougo/vimproc.vim' " must $> make this plugin before it will work
 
 Bundle 'thoughtbot/vim-rspec'

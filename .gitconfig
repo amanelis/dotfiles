@@ -22,6 +22,7 @@
 [user]
 	name = Alex Manelis
 	email = amanelis@gmail.com
+	signingkey = 128F0826A6C3FCF2
 [core]
 	editor = vim
 	excludesfile = /Users/alexmanelis/.gitignore_global
@@ -58,7 +59,7 @@
 	process = git-lfs filter-process
 	required = true
 [commit]
-  template = /Users/alexmanelis/.stCommitMsg
+	template = /Users/alexmanelis/.stCommitMsg
 
 [url "ssh://git@github.com:"]
   insteadOf = https://github.com

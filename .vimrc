@@ -40,6 +40,7 @@ Plugin 'davidhalter/jedi-vim'
 
 Plugin 'shougo/vimproc.vim' " must $> make this plugin before it will work
 
+Plugin 'itchyny/lightline.vim'
 Bundle 'thoughtbot/vim-rspec'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'flazz/vim-colorschemes'

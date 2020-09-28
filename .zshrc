@@ -136,6 +136,12 @@ if [[ "${TERM_PROGRAM}" == "iTerm.app" ]]; then
   POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time status background_jobs time ram)
 else
   ZSH_THEME="bira"
+
+  KUBE_PS1_SEPARATOR=''
+  KUBE_PS1_SYMBOL_ENABLE=false
+
+  KUBE_PS1_PREFIX=[
+  KUBE_PS1_SUFFIX=]
 fi
 
 echo "JUST DO IT" | toilet --gay --font future
@@ -177,6 +183,7 @@ plugins=(
 	encode64
 	git
 	kubectl
+  osx
 )
 
 # Path. This should be the standard and work perfectly
@@ -189,6 +196,7 @@ rvm_project_rvmrc=1
 rvm_trust_rvmrcs_flag=1
 
 # Aliases
+alias p='pwd'
 alias c='cd ../ && clear && ls -l'
 alias cdgo='cd /Users/alexmanelis/go/src/github.com && clear && ls -l'
 alias l='clear && ls -l'
@@ -275,12 +283,20 @@ alias grom='git rebase origin/master'
 alias gros='git rebase origin/stage'
 alias grod='git rebase origin/dev'
 alias cpu='sysctl -n machdep.cpu.brand_string'
+alias s='spotify'
+alias sn='spotify next'
+alias sp='spotify play'
+alias ss='spotify stop'
 
 ## 55Foundry / Charge
 alias csu='open https://meet.google.com/utd-nvpd-whh?authuser=1'
 alias ccl='open https://calendar.google.com/calendar/b/1/r?tab=wc'
 alias 55='cd ~/Development/55Foundry/ && ls -l'
 alias cha='cd ~/Development/55Foundry/55Charge/charge && clear && lc'
+
+# Tezos alias
+alias tezos-client_pc="/Users/alexmanelis/Development/hsm/tezos/tezos-client --addr tezos-rpc.nodes.polychainlabs.com --port 443 --tls"
+alias tezos-client_tz="/Users/alexmanelis/Development/hsm/tezos/tezos-client --addr rpcalpha.tzbeta.net --port 443 --tls"
 
 ### Export final path and RVM
 export MSF_DATABASE_CONFIG=/usr/local/share/metasploit-framework/config/database.yml
@@ -310,52 +326,115 @@ source ~/.aws/environments
 # Source GCP credentials
 source ~/.gcp/environments
 
-# AWS ---------------------------------------------------------------------------------------------------------------------------
+# AWS -------------------------------------------------------
+#
+# PAYCERTIFY
 #
 # Authenticate to dev, stage or prod environments
 # -----------------------------------------------
-ssa() {
-  eval "$(pass charge-ssa)"
+pc-dev() {
+  echo "Authenticating to [dev]..."
+  eval "$(pass paycertify-dev)"
 }
 
-dev() {
+pc-test() {
+  echo "Authenticating to [test]..."
+  eval "$(pass paycertify-test)"
+}
+
+pc-stage() {
+  echo "Authenticating to [stage]..."
+  eval "$(pass paycertify-stage)"
+}
+
+pc-prod() {
+  echo "Authenticating to [prod]..."
+  eval "$(pass paycertify-prod)"
+}
+
+pc-ssa() {
+  echo "Authenticating to [shared-services]..."
+  eval "$(pass paycertify-ssa)"
+}
+
+pc-sec() {
+  echo "Authenticating to [security]..."
+  eval "$(pass paycertify-security-mfa)"
+}
+
+pc-ecr-login() {
+  echo "Authenticating to [docker-ecr]..."
+  eval $(aws ecr get-login --region "us-west-2" --no-include-email --registry-ids "173954218090")
+}
+
+pc-accounts() {
+  echo "paycertify - \e[1m\e[32mdev\e[0m       840746852291"
+  echo "paycertify - \e[1m\e[32mstage\e[0m     208321055488"
+  echo "paycertify - \e[1m\e[32mtest\e[0m      336934636274"
+  echo "paycertify - \e[1m\e[32mprod\e[0m      592158444005"
+  echo "paycertify - \e[1m\e[96mssa\e[0m       173954218090"
+  echo "paycertify - \e[1m\e[31msec\e[0m       212389576057"
+}
+
+
+# AWS -------------------------------------------------------
+#
+# CHARGE
+#
+# Authenticate to dev, stage or prod environments
+# -----------------------------------------------
+ch-dev() {
+  echo "Authenticating to [dev]..."
   eval "$(pass charge-dev)"
 }
 
-stage() {
+ch-test() {
+  echo "Authenticating to [test]..."
+  eval "$(pass charge-test)"
+}
+
+ch-stage() {
+  echo "Authenticating to [stage]..."
   eval "$(pass charge-stage)"
 }
 
-prod() {
+ch-prod() {
+  echo "Authenticating to [prod]..."
   eval "$(pass charge-prod)"
 }
 
-# Return the ARN for sts assumeRole for Charge
-# -----------------------------------------------
-ssaARN() {
-  echo "$(pass show charge-ssa-sts-arn)"
+ch-ssa() {
+  echo "Authenticating to [shared-services]..."
+  eval "$(pass charge-ssa)"
 }
 
-devARN() {
-  echo "$(pass show charge-dev-sts-arn)"
+ch-sec() {
+  echo "Authenticating to [security]..."
+  eval "$(pass charge-security-mfa)"
 }
 
-stageARN() {
-  echo "$(pass show charge-stage-sts-arn)"
+ch-ecr-login() {
+  echo "Authenticating to [docker-ecr]..."
+  eval $(aws ecr get-login --region "eu-central-1" --no-include-email --registry-ids "886567298058")
 }
 
-prodARN() {
-  echo "$(pass show charge-prod-sts-arn)"
-}
-
-awsAccount() {
-  aws sts get-caller-identity | jq .Account
+ch-accounts() {
+  echo "charge - dev       777212039479"
+  echo "charge - stage     648561367723"
+  echo "charge - test      657121371987"
+  echo "charge - prod      268417472676"
+  echo "charge - ssa       886567298058"
+  echo "charge - sec       157402593452"
 }
 
 # Update the Kubectl for each environment K8S
 # ----------------------------------------------
 devK() {
   aws eks --region us-west-2 update-kubeconfig --name eks-dev
+}
+
+testK() {
+  aws eks --region us-west-2 update-kubeconfig --name eks-test
 }
 
 stageK() {
@@ -381,7 +460,6 @@ alias k8t="kubectl -n kube-system describe secret $(kubectl -n kube-system get s
 alias k8p="kubectl proxy"
 alias k8w="open http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/"
 alias kclear="kubectl config unset current-context"
-alias dmock="cd /Users/alexmanelis/go/src/github.com/55foundry/dmock && clear && ls -l"
 
 kr1() {
   ~/k8s.resources
@@ -399,11 +477,6 @@ export PATH="/usr/local/opt/gpg-agent/bin:$PATH"
 export PATH="/usr/local/Cellar/mysql@5.5/5.5.61/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
-# Prompt for K8S support
-source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
-PROMPT='$(kube_ps1)'$PROMPT
-
-
 # Colorcat ls iTerm colors
 source ~/.fonts/*.sh
 source /Users/alexmanelis/.rvm/gems/ruby-2.5.1/gems/colorls-1.2.0/lib/tab_complete.sh
@@ -416,3 +489,4 @@ export NVM_DIR="/Users/alexmanelis/.nvm"
 export PYENV_ROOT="/Users/alexmanelis/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH:/Users/alexmanelis/.pyenv/shims"
 eval "$(pyenv init -)"
+export PATH="/usr/local/opt/tcl-tk/bin:$PATH"

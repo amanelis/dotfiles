@@ -288,8 +288,8 @@ alias sp='spotify play'
 alias ss='spotify stop'
 
 ## 55Foundry / Charge
-alias csu='open https://meet.google.com/utd-nvpd-whh?authuser=1'
-alias ccl='open https://calendar.google.com/calendar/b/1/r?tab=wc'
+alias csu="open https://meet.google.com/utd-nvpd-whh\?authuser=1"
+alias ccl="open https://calendar.google.com/calendar/b/1/r\?tab=wc"
 alias 55='cd ~/Development/55Foundry/ && ls -l'
 alias cha='cd ~/Development/55Foundry/55Charge/charge && clear && lc'
 

@@ -1,7 +1,6 @@
 ZSH=$HOME/.oh-my-zsh
 
-~/Tmp/neofetch/neofetch --source $(ruby -e "puts Dir['/Users/alexmanelis/Pictures/mannolo/*'].sample") --backend iterm2 --image_size 385px
-
+#~/Tmp/neofetch/neofetch --source $(ruby -e "puts Dir['/Users/alexmanelis/Pictures/mannolo/*'].sample") --backend iterm2 --image_size 385px
 
 zsh_internet_signal(){
   local color
@@ -144,7 +143,7 @@ else
   KUBE_PS1_SUFFIX=]
 fi
 
-echo "JUST DO IT" | toilet --gay --font future
+#echo "JUST DO IT" | toilet --gay --font future
 
 ###########################################################
 # Set to this to use case-sensitive completion
@@ -473,15 +472,16 @@ ktok() {
   kubectl config view | grep -A10 "name: $(kubectl config current-context)" | awk '$1=="access-token:"{print $2}'
 }
 
+# MySQL
 export PATH="/usr/local/opt/gpg-agent/bin:$PATH"
 export PATH="/usr/local/Cellar/mysql@5.5/5.5.61/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
 # Colorcat ls iTerm colors
 source ~/.fonts/*.sh
-source /Users/alexmanelis/.rvm/gems/ruby-2.5.1/gems/colorls-1.2.0/lib/tab_complete.sh
 alias lc='colorls -lA --sd --gs'
 
+# NVM
 export NVM_DIR="/Users/alexmanelis/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 

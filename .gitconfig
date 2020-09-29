@@ -22,7 +22,7 @@
 [user]
 	name = Alex Manelis
 	email = amanelis@gmail.com
-	signingkey = 9DC8D747
+	signingkey = 5D65AB889DC8D747
 [core]
 	editor = vim
 	excludesfile = /Users/alexmanelis/.gitignore_global

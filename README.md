@@ -14,3 +14,4 @@ Current plugins that are not included
 
 - https://github.com/zsh-users/zsh-syntax-highlighting
 - http://lnav.org/
+
